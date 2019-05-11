@@ -22,7 +22,7 @@ Source0:	https://git.php.net/?p=pecl/text/wddx.git;a=snapshot;h=%{commit};sf=tgz
 # Source0-md5:	26015cbae30cc81b4ddabd060ec94b56
 URL:		https://pecl.php.net/package/wddx/
 BuildRequires:	%{php_name}-cli
-BuildRequires:	%{php_name}-devel
+BuildRequires:	%{php_name}-devel >= 4:7.3
 BuildRequires:	rpmbuild(macros) >= 1.666
 %if %{with tests}
 BuildRequires:	%{php_name}-xml
