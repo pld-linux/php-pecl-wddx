@@ -25,6 +25,9 @@ BuildRequires:	%{php_name}-cli
 BuildRequires:	%{php_name}-devel >= 4:7.3
 BuildRequires:	rpmbuild(macros) >= 1.666
 %if %{with tests}
+BuildRequires:	%{php_name}-pcre
+BuildRequires:	%{php_name}-session
+BuildRequires:	%{php_name}-spl
 BuildRequires:	%{php_name}-xml
 %endif
 %{?requires_php_extension}
@@ -48,7 +51,7 @@ cat <<'EOF' > run-tests.sh
 export NO_INTERACTION=1 REPORT_EXIT_STATUS=1 MALLOC_CHECK_=2
 exec %{__make} test \
 	PHP_EXECUTABLE=%{__php} \
-	PHP_TEST_SHARED_SYSTEM_EXTENSIONS="xml" \
+	PHP_TEST_SHARED_SYSTEM_EXTENSIONS="xml spl session" \
 	RUN_TESTS_SETTINGS="-q $*"
 EOF
 chmod +x run-tests.sh
